@@ -14,12 +14,15 @@ UCLASS()
 class FPSGAME_API AFPSObjectiveActor : public AActor
 {
 	GENERATED_BODY()
-	
-public:	
+
+public:
 	// Sets default values for this actor's properties
 	AFPSObjectiveActor();
 
+	// No one outside this class can call functions in here
 protected:
+
+	// <Class>* <- this is a pointer to a class
 
 	// UPROP: Exposing these Components to blueprints and have the ability to edit them
 	UPROPERTY(VisibleAnywhere, Category = "Components");
@@ -30,11 +33,18 @@ protected:
 	// holds collision information
 	USphereComponent* SphereComp;
 
+	UPROPERTY(EditDefaultsOnly, Category = "Effects")
+		UParticleSystem* PickupFX;
+
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-		
-public:	
+
+	// Fn that spawns particle effects, when we overlap with this objective as player
+	void PlayEffects();
+
+public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	virtual void NotifyActorBeginOverlap(AActor* OtherActor) override;
 };
