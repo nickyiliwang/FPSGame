@@ -7,3 +7,6 @@ Following a tutorial, goal of this project is to learn about game networking and
 Created an Actor class as an objective for the player to pick up (BP_Objective)
 Actors can be anything in the world.
 Actors can be imported into blueprints and have it's own name
+
+// First steps
+Added a mesh component and a sphere mesh component and exposed them in UPROPERTY
