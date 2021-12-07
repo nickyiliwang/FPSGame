@@ -6,7 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "FPSObjectiveActor.generated.h"
 
-// like importing packages in js, we are only gonnna import what we need
+// like importing packages in js, we are only gonna import what we need
 // the details are gonna be in .cpp file
 class USphereComponent;
 
@@ -43,8 +43,5 @@ protected:
 	void PlayEffects();
 
 public:
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
-
 	virtual void NotifyActorBeginOverlap(AActor* OtherActor) override;
 };
